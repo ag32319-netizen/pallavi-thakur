@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Poppins',sans-serif;
+}
+
+body{
+  background:linear-gradient(135deg,#ff5f9e,#ff8ccf);
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:#fff;
+  text-align:center;
+  overflow:hidden;
+}
+
+.container{
+  background:rgba(0,0,0,0.25);
+  padding:25px;
+  border-radius:22px;
+  width:90%;
+  max-width:360px;
+  box-shadow:0 25px 45px rgba(0,0,0,0.35);
+  animation:fade 1.5s ease;
+}
+
+h1{font-size:24px;margin-bottom:12px;}
+p{font-size:16px;line-height:1.6;}
+
+button{
+  margin-top:20px;
+  padding:12px 22px;
+  border:none;
+  border-radius:30px;
+  background:#fff;
+  color:#ff4f91;
+  font-size:15px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+button:hover{transform:scale(1.08);}
+
+.hidden{display:none;}
+
+img{
+  width:100%;
+  border-radius:15px;
+  margin-top:15px;
+}
+
+@keyframes fade{
+  from{opacity:0;transform:translateY(25px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* Confetti */
+.confetti{
+  position:fixed;
+  width:8px;
+  height:8px;
+  background:white;
+  animation:fall 3s linear infinite;
+  opacity:0.7;
+}
+@keyframes fall{
+  0%{transform:translateY(-10px);}
+  100%{transform:translateY(110vh);}
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_5bdc07c9a6.mp3">
+</audio>
+
+<div class="container" id="box">
+  <h1>Hey Beautiful 💖</h1>
+<p>I made something special for you...</p>
+  <p>Are you ready for the surprise?</p>
+  <button onclick="step1()">Yes 🎁</button>
+</div>
+
+<script>
+function step1(){
+  box.innerHTML=`
+  <h1>🎂 Happy Birthday My Love 🎂</h1>
+  <p>
+    Today isn’t just special<br>
+    because it’s your birthday,<br>
+    but because YOU exist ❤️,<br>
+    and that changed my life forever ✨
+  </p>
+  <button onclick="step2()">Tap Again 💌</button>`;
+  confetti();
+}
+
+function step2(){
+  box.innerHTML=`
+  <h1>🌸 This Is You</h1>
+  <p>
+  Kind heart, gentle soul,<br>
+  and the prettiest smile.<br><br>
+  You make life warmer just by being you 🤍
+  </p>
+  <img src="her.jpg" alt="Description of the jpg" style="border-radius:20px; box-shadow:0 15px 30px rgba(0,0,0,0.4);">
+  <button onclick="step3()">Read Something 💭</button>`;
+}
+
+function step3(){
+  box.innerHTML=`
+  <h1>💌 A Letter For You</h1>
+  <p>
+  From the day you came into my life,<br>
+ everything became brighter ✨,<br><br>
+ your smile is my peace 🥺,<br><br>
+ your voice is my comfort 🙈,<br><br>
+ your presence completes me 💞,<br><br>
+ and your love is my home ❤️
+  </p>
+  <button onclick="step4()">One Question 🙈</button>`;
+}
+
+function step4(){
+  box.innerHTML=`
+  <h1>🤍 One Honest Question</h1>
+  <p>Will you stay with me forever?</p>
+  <button onclick="yes()">Yes 💖</button>
+  <button onclick="no()">No 🙃</button>`;
+}
+
+function yes(){
+  box.innerHTML=`
+  <h1>😭❤️ I Knew It</h1>
+  <p>
+  Thank you for being my miracle.<br>
+  I promise to choose you<br>
+  today, tomorrow, always ✨
+  </p>
+  <button onclick="final()">Final Surprise 🎉</button>`;
+}
+
+function no(){
+  alert("Wrong button 😌 Try again!");
+}
+
+function final(){
+  box.innerHTML=`
+  <h1>🌸 Forever Yours 🌸</h1>
+  <p>
+  Happy Birthday My Heart 💕<br>
+  May all your dreams come true,<br>
+  and may I be part of them forever.
+  </p>`;
+  confetti();
+}
+
+function confetti(){
+  for(let i=0;i<40;i++){
+    let c=document.createElement("div");
+    c.className="confetti";
+    c.style.left=Math.random()*100+"vw";
+    c.style.background=["#fff","#ffd1e8","#ffeb3b","#ff5f9e"][Math.floor(Math.random()*4)];
+    c.style.animationDuration=(Math.random()*2+2)+"s";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),3000);
+  }
+}
+</script>
+
+</body>
+</html>
